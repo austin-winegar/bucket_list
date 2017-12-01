@@ -1,11 +1,7 @@
-<h1><%= @topic.id ? 'Edit List' : 'Create List' %></h1>
+<h1><%= @list.id ? 'Edit List' : 'Create List' %></h1>
 <hr />
-<%= form_for [@list, @destination] do |f| %>
+<%= form_for @list do |f| %>
  <%= f.label :name %>
  <%= f.text_field :name, required: true %>
- <br />
- <%= f.label :body %>
- <%= f.text_area :body, required: true%>
- <br />
  <%= f.submit %>
 <% end %>

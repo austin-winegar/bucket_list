@@ -1,2 +1,11 @@
-<h1>Activities#show</h1>
-<p>Find me in app/views/activities/show.html.erb</p>
+<h1><%= @list.name %> - <%= @destination.name %></h1>
+<p><%= @activity.body %></p>
+
+<% @activity.comments.each do |comment|%>
+  <%= render 'comments/comments', {comment: comment } %>
+<% end %>
+
+<%= link_to 'Edit Activity', edit_sub_activity_path([@list, @activity]) %>
+<%= link_to 'Delete Activity', [@list, @activity], method: :delete %>
+<%= link_to 'Back To Activities', sub_activity_path(@list) %>
+<%= link_to 'Add Comment', new_activity_comment_path(@activity) %>
